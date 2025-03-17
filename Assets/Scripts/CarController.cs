@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CarController : MonoBehaviour {
+public class CarController : MonoBehaviour
+{
 
     [SerializeField] WheelCollider frontRight;
     [SerializeField] WheelCollider frontLeft;
@@ -55,7 +56,7 @@ public class CarController : MonoBehaviour {
 
     }
 
-    void UpdateWheel (WheelCollider col, Transform trans)
+    void UpdateWheel(WheelCollider col, Transform trans)
     {
         Vector3 position;
         Quaternion rotation;
@@ -64,4 +65,5 @@ public class CarController : MonoBehaviour {
         trans.position = position;
         trans.rotation = rotation;
     }
+   
 }
