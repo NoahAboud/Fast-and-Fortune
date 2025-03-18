@@ -3,12 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class ScoreCounter : MonoBehaviour
 {
     public int score = 1000;
     public Text scoreText;
     public bool gameOver = false;
-
+    public GameObject gameOverUI;
+    public GameObject victoryUI;
+    public GameObject car;
     void Start()
     {
 
@@ -27,14 +30,19 @@ public class ScoreCounter : MonoBehaviour
             if (score <= 0)
             {
                 score = 0;
-                Destroy(gameObject);
+                gameOverUI.SetActive(true);
+                car.GetComponent<CarController>().enabled = false;
+                car.GetComponent<Particles>().enabled = false;
                 gameOver = true;
                 Debug.Log("Game Over!");
             }
-            if (collision.gameObject.CompareTag("Finish"))
-            {
-
-            }
+            
+        }
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            victoryUI.SetActive(true);
+            car.GetComponent<CarController>().enabled = false;
+            car.GetComponent<Particles>().enabled = false;
         }
     }
    
